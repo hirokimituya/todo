@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Mail\ResetPassword;
+use Illuminate\Support\Facades\Mail;
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -44,5 +47,13 @@ class User extends Authenticatable
     public function folders()
     {
         return $this->hasMany('App\Models\Folder');
+    }
+
+    /**
+     * パスワード再設定メールを送信する
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        Mail::to($this)->send(new ResetPassword(($token)));
     }
 }

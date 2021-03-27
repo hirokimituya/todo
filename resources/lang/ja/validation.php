@@ -151,7 +151,8 @@ return [
 
     'attributes' => [
         'email' => 'メールアドレス',
-        'password' => 'パスワード'
+        'password' => 'パスワード',
+        'token' => 'トークン',
     ],
 
 ];
