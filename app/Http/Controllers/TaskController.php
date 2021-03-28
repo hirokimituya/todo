@@ -21,7 +21,7 @@ class TaskController extends Controller
         // 選ばれたフォルダに紐づくタスクを取得する
         $tasks = $folder->tasks()->get();
 
-        return view('tasks/index', [
+        return view('tasks.index', [
             'folders' => $folders,
             'current_folder_id' => $folder->id,
             'tasks' => $tasks,
@@ -33,7 +33,7 @@ class TaskController extends Controller
      */
     public function showCreateForm(Folder $folder) 
     {
-        return view('tasks/create', [
+        return view('tasks.create', [
             'folder_id' => $folder->id
         ]);
     }
@@ -58,7 +58,7 @@ class TaskController extends Controller
     {
         $this->checkRelation($folder, $task);
 
-        return view('tasks/edit', [
+        return view('tasks.edit', [
             'task' => $task,
         ]);
     }

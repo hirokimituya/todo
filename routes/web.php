@@ -33,6 +33,9 @@ Route::middleware('auth')->group(function() {
 
         Route::get('/folders/{folder}/tasks/{task}/delete', [TaskController::class, 'showDeleteForm'])->name('tasks.delete');
         Route::post('/folders/{folder}/tasks/{task}/delete', [TaskController::class, 'delete']);
+
+        Route::get('/folders/{folder}/edit', [FolderController::class, 'showEditForm'])->name('folders.edit');
+        Route::post('/folders/{folder}/edit', [FolderController::class, 'edit']);
     });
 });
 
