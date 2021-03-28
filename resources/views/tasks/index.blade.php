@@ -20,7 +20,7 @@
                   </div>
               </nav>
           </div>
-          <div class="column col-md-8">
+          <div class="col col-md-8">
               <div class="panel panel-default">
                 <div class="panel-heading">タスク</div>
                 <div class="panel-body">
@@ -47,7 +47,8 @@
                           <span class="label {{ $task->status_class }}">{{ $task->status_label }}</span>
                         </td>
                         <td>{{ $task->formatted_due_date }}</td>
-                        <td><a href="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task' => $task->id]) }}">編集</a></td>
+                        <td><a href="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task' => $task->id]) }}" >編集</a></td>
+                        <td><a href="{{ route('tasks.delete', ['folder' => $task->folder_id, 'task' => $task->id]) }}" style="color:red">削除</a></td>
                       </tr>
                     @endforeach
                   </tbody>

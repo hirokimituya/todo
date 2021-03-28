@@ -18,7 +18,7 @@
                                 @endforeach
                             </div>
                         @endif
-                        <form action="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task' => $task->id]) }}" method="post">
+                        <form name="Form" action="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task' => $task->id]) }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="title">タイトル</label>
@@ -38,10 +38,13 @@
                                 <label for="due_date">期限</label>
                                 <input type="text" class="form-control" name="due_date" id="due_date" value="{{ old('due_date', $task->formatted_due_date )}}" />
                             </div>
-                            <div class="text-right">
-                                <button type="submit" class="btn btn-primary">送信</button>
-                            </div>
                         </form>
+                        <div style="float:left;">
+						    <button class="btn btn-secondary" onclick="history.back();">戻る</button>
+						</div>
+						<div style="float:right">
+							<button id="submit" class="btn btn-primary">送信</button>
+						</div>
                     </div>
                 </nav>
             </div>
@@ -51,4 +54,5 @@
 
 @section('scripts')
     @include('share.flatpickr.scripts')
+    @include('share.form.form')
 @endsection

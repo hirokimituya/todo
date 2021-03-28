@@ -16,19 +16,26 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('folders.create') }}" method="post">
+                        <form name="Form" action="{{ route('folders.create') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="title">フォルダ名</label>
                                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}"/>
                             </div>
-                            <div class="text-right">
-                                <button type="submit" class="btn btn-primary">送信</button>
-                            </div>
                         </form>
+                        <div style="float:left;">
+							<button class="btn btn-secondary" onclick="history.back();">戻る</button>
+						</div>
+						<div style="float:right">
+								<button id="submit" class="btn btn-primary">送信</button>
+						</div>
                     </div>
                 </nav>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    @include('share.form.form')
 @endsection
