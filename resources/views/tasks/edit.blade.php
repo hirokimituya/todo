@@ -11,7 +11,7 @@
                 <nav class="panel panel-default">
                     <div class="panel-heading">タスクを編集する</div>
                     <div class="panel-body">
-                        @if($errors->any)
+                        @if($errors->any())
                             <div class="alert alert-danger">
                                 @foreach($errors->all() as $message)
                                     <p>{{ $message }}</p>
